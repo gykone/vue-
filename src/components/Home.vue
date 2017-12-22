@@ -38,6 +38,8 @@
 
 <script>
 	import { Toast } from 'mint-ui';
+	import common from '../kits/common.js';
+
 	export default {
 		data(){
 			return{
@@ -65,7 +67,7 @@
 			getimgs(){
 				// 实现轮播组件的数据请求
 				// 1.0确定url
-				var url = 'http://vue.studyit.io/api/getlunbo';
+				var url = common.apidomain+'/api/getlunbo';
 				// 2.0调用$http.getimgs()
 				this.$http.get(url).then(function(response){
 					var data = response.body;

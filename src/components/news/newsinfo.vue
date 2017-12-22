@@ -5,12 +5,22 @@
 		   <p>{{ info.add_time | datefmt('YYYY-MM-DD') }}  {{info.click}}次浏览</p>
 	   </div>
 		<div id="content" v-html="info.content" ></div>
+
+		<!-- 2.实现品论组件 -->
+		<comment :id="id"></comment>
     </div>
+
+    
 </template>
 
 <script>
 	import { Toast } from 'mint-ui';
+	import common from '../../kits/common.js';
+	import comment from '../subcom/comment.vue';
 	export default {
+		components:{
+			comment
+		},
 		data(){
 			return{
 				id:0,
@@ -27,7 +37,7 @@
 		methods:{
 			getinfo(){
 				// 确定url
-				var url = "http://vue.studyit.io/api/getnew/"+this.id;
+				var url = common.apidomain+"/api/getnew/"+this.id;
 				this.$http.get(url).then(function(res){
 					var data = res.body;
 					if(data.status != 0){

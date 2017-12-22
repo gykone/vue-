@@ -21,7 +21,7 @@
 <script>
 
 	import { Toast } from 'mint-ui';
-
+	import common from '../../kits/common.js';
 	export default {
 		data(){
 			return{
@@ -33,7 +33,7 @@
 		},
 		methods:{
 			getnewslist(){
-				var url = 'http://vue.studyit.io/api/getnewslist';
+				var url = common.apidomain+'/api/getnewslist';
 				this.$http.get(url).then(function(response){
 					var data = response.body;
 					if(data.status !=0){
